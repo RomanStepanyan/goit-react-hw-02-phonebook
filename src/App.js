@@ -14,6 +14,7 @@ export default class App extends Component {
     ],
     filter: '',
   };
+
   handleAddContact = newContact =>
     this.setState(({ contacts }) => ({
       contacts: [...contacts, newContact],
@@ -25,6 +26,7 @@ export default class App extends Component {
     isUniqueContact && alert('Contact is already exist');
     return !isUniqueContact;
   };
+
   handleRemoveContacts = id =>
     this.setState(({ contacts }) => ({
       contacts: contacts.filter(contact => contact.id !== id),
@@ -57,12 +59,16 @@ export default class App extends Component {
     return (
       <div className={s.container}>
         <h2 className={s.title}>Contact form</h2>
+
         <ContactForm
           onAdd={this.handleAddContact}
           onCheckUnique={this.handleCheckUniqueName}
         />
+
         <h2 className={s.title}>Contact list</h2>
+
         <FilterContacts filter={filter} onChange={this.handleFilterChange} />
+
         <ContactsList
           contacts={visibleContacts}
           onRemove={this.handleRemoveContacts}

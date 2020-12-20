@@ -1,4 +1,5 @@
 import s from './FilterContacts.module.css';
+
 const FilterContacts = ({ filter, onChange }) => {
   return (
     <input

@@ -9,10 +9,12 @@ const INITIAL_STATE = {
 
 export default class ContactForm extends Component {
   state = INITIAL_STATE;
+
   handleChangeForm = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
   };
+
   handleFormSubmit = event => {
     event.preventDefault();
     const { name, phone } = this.state;
@@ -22,6 +24,7 @@ export default class ContactForm extends Component {
     onAdd({ id: uuid(), name, phone });
     this.resetForm();
   };
+
   validateForm = () => {
     const { name, phone } = this.state;
     const { onCheckUnique } = this.props;
@@ -45,6 +48,7 @@ export default class ContactForm extends Component {
           value={name}
           onChange={this.handleChangeForm}
         />
+
         <input
           type="tel"
           name="phone"
@@ -52,6 +56,7 @@ export default class ContactForm extends Component {
           value={phone}
           onChange={this.handleChangeForm}
         />
+
         <button type="submit">Add contact</button>
       </form>
     );
