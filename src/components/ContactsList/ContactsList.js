@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import s from './ContactsList.module.css';
 
@@ -21,3 +22,14 @@ const ContactsList = ({ contacts, onRemove }) => {
 };
 
 export default ContactsList;
+
+ContactsList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    }),
+  ),
+  onRemove: PropTypes.func,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './FilterContacts.module.css';
 
 const FilterContacts = ({ filter, onChange }) => {
@@ -13,3 +14,8 @@ const FilterContacts = ({ filter, onChange }) => {
   );
 };
 export default FilterContacts;
+
+FilterContacts.propTypes = {
+  filter: PropTypes.string,
+  onChange: PropTypes.func,
+};
